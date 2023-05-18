@@ -1,10 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import logoImg from '../assets/logo.svg'
 import hamburgerImg from '../assets/hamburger-button.svg'
 import DropMenu from '../components/DropMenu'
+
  
 export const Head = styled.header`
   display: flex;
@@ -44,13 +46,19 @@ export default function Header () {
 
     const [ isMenuOpened, setIsMenuOpened ] = useState(false);
 
+    const navigate = useNavigate();
+
     const handleMenuClick = () => {
         setIsMenuOpened(!isMenuOpened);
     }
 
+    const handleLogoClick = () => {
+        navigate('/');
+    }
+
     return(
         <Head>
-            <LogoWrapper> 
+            <LogoWrapper onClick={handleLogoClick}> 
                 <LogoImage src={logoImg}/>
                 <Title>coz shopping</Title>
             </LogoWrapper>
