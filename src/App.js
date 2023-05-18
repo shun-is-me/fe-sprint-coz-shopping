@@ -22,17 +22,17 @@ const Wrapper = styled.div`
 function App() {
   return (
     <>
-      <Header/>
-      <Wrapper>
-        <Router>
+      <Router>
+        <Header/>
+        <Wrapper>
           <Routes>
             <Route path='/' element={<MainPage />} />
             <Route path='/products/list' element={<ProductListPage />} />
             <Route path='/bookmark' element={<BookmarkPage />} />
           </Routes>
-        </Router>
-      </Wrapper>
-      <Footer/>
+        </Wrapper>
+        <Footer/>
+      </Router>
     </>
       
   );

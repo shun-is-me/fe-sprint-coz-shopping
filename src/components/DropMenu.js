@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Menu = styled.div`
@@ -50,10 +51,10 @@ export default function DropMenu ({ handleMenuClick }) {
         <Menu>
           <MenuItem>OOO님, 안녕하세요!</MenuItem>
           <MenuItem>
-            <div onClick={handleMenuClick}>상품리스트 페이지</div>
+            <Link to='/products/list' onClick={handleMenuClick}>상품리스트 페이지</Link>
           </MenuItem>
           <MenuItem>
-            <div onClick={handleMenuClick}>북마크 페이지</div>
+            <Link to='/bookmark' onClick={handleMenuClick}>북마크 페이지</Link>
           </MenuItem>
         </Menu>
       </>
