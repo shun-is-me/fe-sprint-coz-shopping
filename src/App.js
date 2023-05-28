@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import styled from 'styled-components';
+
+import Header from './pages/Header';
+import Footer from './pages/Footer';
+import MainPage from './pages/mainPage';
+import BookmarkPage from './pages/BookmarkPage';
+import ProductListPage from './pages/ProductlistPage';
+
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  main {
+    width: 1128px;
+    margin: 24px 76px 0;
+  }
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Header/>
+        <Wrapper>
+          <Routes>
+            <Route path='/' element={<MainPage />} />
+            <Route path='/products/list' element={<ProductListPage />} />
+            <Route path='/bookmark' element={<BookmarkPage />} />
+          </Routes>
+        </Wrapper>
+        <Footer/>
+      </Router>
+    </>
+      
   );
 }
 
